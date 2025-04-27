@@ -23,9 +23,9 @@ Attackers can inject double encoding in pathnames or query strings to bypass the
 There are some common characters sets that are used in Web applications attacks. For example, [Path Traversal](/attacks/Path_Traversal)
 attacks use `../` (dot-dot-slash) , while [XSS](/attacks/xss) attacks use `<` and `>` characters. These characters give a hexadecimal representation that differs from normal data.
 
-For example, `../` (dot-dot-slash) characters represent `%2E%2E%2f` in hexadecimal representation. When the `%` symbol is encoded again, its representation in hexadecimal code is `%25`. The result from the double encoding process `../` (dot-dot-slash) would be `%252E%252E%252F`:
+For example, `../` (dot-dot-slash) characters represent `%2E%2E%2F` in hexadecimal representation. When the `%` symbol is encoded again, its representation in hexadecimal code is `%25`. The result from the double encoding process `../` (dot-dot-slash) would be `%252E%252E%252F`:
 
-- The hexadecimal encoding of `../` represents `%2E%2E%2f`
+- The hexadecimal encoding of `../` represents `%2E%2E%2F`
 - Then encoding the `%` represents `%25`
 - Double encoding of `../` represents `%252E%252E%252F`
 
@@ -44,11 +44,11 @@ Original URL:
 `http://victim/cgi/../../winnt/system32/cmd.exe?/c+dir+c:\`
 
 However, the application uses a security check filter that refuses requests containing characters like “../”. By double encoding the URL,
-it’s possible to bypass security the filter:
+it’s possible to bypass the security filter:
 
 Double encoded URL:
 
-`http://victim/cgi/%252E%252E%252F%252E%252E%252Fwinnt/system32/cmd.exe?/c+dir+c:\ `
+`http://victim/cgi/%252E%252E%252F%252E%252E%252Fwinnt/system32/cmd.exe?/c+dir+c:\ `
 
 ### Example 2
 
@@ -63,62 +63,11 @@ alert('XSS')
 This malicious code could be inserted into a vulnerable application, resulting in an alert window with the message “XSS”. However, the web
 application can have a character filter which prohibits characters such as `<`, `>` and `/`, since they are used to perform web application attacks. The attacker could use a double encoding technique to bypass the filter and exploit the client’s session. The encoding process for this JavaScript is:
 
-<table >
-<tr>
-<td colspan=30>
-<b> Char </b>
-</td>
-<td colspan=40>
-<b> Hex encode </b>
-</td>
-<td colspan=50%>
-<b> Then encoding `%`</b>
-</td>
-<td colspan=50%>
-<b> Double encode </b>
-</td>
-</tr>
-<tr>
-<td colspan=30>
-`<`
-</td>
-<td colspan=40>
-`%3C`
-</td>
-<td colspan=50%>
-`%25`
-</td>
-<td colspan=50%>
-`%253C`
-</td>
-</tr>
-<tr>
-<td colspan=30>
-`/`
-</td>
-<td colspan=40>
-`%2F`
-</td>
-<td colspan=50%>
-“%25”
-</td>
-<td colspan=50%>
-`%252F`
-</td>
-</tr>b<tr>b<td colspan=30>
-`>`
-</td>
-<td colspan=40>
-`%3E`
-</td>
-<td colspan=50%>
-`%25`
-</td>
-<td colspan=50%>
-`%253E`
-</td>
-</tr>
-</table>
+|Char|Hex encode|Then encoding '%'|Double encode|
+|----|----------|-----------------|-------------|
+|`<`|`%3C`|`%25`|`%253C`|
+|`/`|`%2F`|`%25`|`%252F`|
+|`>`|`%3E`|`%25`|`%253E`|
 
 Finally, the malicious double encoding code is:
 

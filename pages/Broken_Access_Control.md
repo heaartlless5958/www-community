@@ -34,7 +34,10 @@ other mischief.
 
 ## Examples and References
 
-- [http://www.infosecuritymag.com/2002/jun/insecurity.shtml](http://www.infosecuritymag.com/2002/jun/insecurity.shtml)
+- [OWASP Proactive Controls: Enforce Access Controls](https://github.com/OWASP/www-project-proactive-controls/blob/master/v3/en/c7-enforce-access-controls.md)
+- [OWASP Application Security Verification Standard: V4 Access Control](https://github.com/OWASP/ASVS/blob/master/4.0/en/0x12-V4-Access-Control.md)
+- [OWASP Testing Guide: Authorization Testing](https://owasp.org/www-project-web-security-testing-guide/v42/4-Web_Application_Security_Testing/05-Authorization_Testing/)
+- [OWASP Cheat Sheet: Authorization Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Authorization_Cheat_Sheet.html)
 
 ## How to Determine If You Are Vulnerable
 
@@ -63,7 +66,7 @@ extensively tested to be sure that there is no way to bypass it. This testing re
 Some specific access control issues include:
 
 - **Insecure Id’s** – Most web sites use some form of id, key, or index as a way to reference users, roles, content, objects, or
-functions. If an attacker can guess these id’s, and the supplied values are not validated to ensure the are authorized for the
+functions. If an attacker can guess these id’s, and the supplied values are not validated to ensure they are authorized for the
 current user, the attacker can exercise the access control scheme freely to see what they can access. Web applications should not rely
 on the secrecy of any id’s for protection.
 - **Forced Browsing Past Access Control Checks** – many sites require users to pass certain checks before being granted access to certain

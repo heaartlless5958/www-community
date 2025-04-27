@@ -62,7 +62,7 @@ So, we've found that the concept of a security control is hard to define clearly
 A control differs from a standard in that the standard is focused on requirements for specific tools that may be used, coding structures, or
 techniques.
 
-![Image:Control_support.jpg](/assets/controls/control_support.jpg)
+![Image:Control_support.jpg](../../assets/images/controls/control_support.jpg)
 
 **Figure 1** - Relationship of control statements to control objectives and other documentation
 
@@ -74,7 +74,7 @@ component of risk assessment that examines the threats, vulnerabilities and expo
 <ul>
 {% assign ctrlpages = site.pages | where_exp: "item", "item.tags contains 'controls'" %}
 {% for page in ctrlpages %}
-    <li><a href='/www-community{{ page.url }}'>{{ page.title }}</a>{% if page.author %} by {{ page.author }}{% endif %}</li>
+    <li><a href='{{ site.baseurl }}{{ page.url }}'>{{ page.title }}</a>{% if page.author %} by {{ page.author }}{% endif %}</li>
 {% endfor %}
 </ul>
 

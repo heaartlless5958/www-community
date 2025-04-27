@@ -122,7 +122,7 @@ characters), BNF.
 
 A "reference" could be a database key, a URL, a filename, or some other
 kind of lookup index. While injecting into these references doesn't
-typically allow for command execution, it's an interesting because the
+typically allow for command execution, it's interesting because the
 parsers for these references aren't typically too complicated. However,
 URLs and filenames can become quite complex. See the "jar:" scheme for
 examples of non-intuitive syntax begging for injection.
@@ -138,12 +138,12 @@ TBD. Recursive descent or LALR parsers.
 
 To really understand what's going on with XSS, you have to consider
 injection into the hierarchical structure of the [HTML
-DOM](http://www.w3schools.com/HTMLDOM/default.asp). Given a place to
+DOM](https://www.w3schools.com/whatis/whatis_htmldom.asp). Given a place to
 insert data into an HTML document (that is, a place where a developer
 has allowed untrusted data to be included in the DOM), there are two
 ways to inject code:
 
-;Injecting UP:The most common way is to close the current context and
+- Injecting UP:The most common way is to close the current context and
 start a new code context. For example, this is what you do when you
 close an HTML attribute with a `"\>` and start a new
 `<script>`

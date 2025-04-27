@@ -1,11 +1,11 @@
 ---
 
 layout: col-sidebar
-title: Man-in-the-middle attack
+title: Manipulator-in-the-middle attack
 author: 
 contributors: 
-permalink: /attacks/Man-in-the-middle_attack
-tags: attack, Man-in-the-middle attack
+permalink: /attacks/Manipulator-in-the-middle_attack
+tags: attack, Manipulator-in-the-middle attack, MITM
 auto-migrated: 1
 
 ---
@@ -14,7 +14,7 @@ auto-migrated: 1
 
 ## Description
 
-The man-in-the middle attack intercepts a communication between two
+The Manipulator-in-the middle attack (MITM) intercepts a communication between two
 systems. For example, in an http transaction the target is the TCP
 connection between client and server. Using different techniques, the
 attacker splits the original TCP connection into 2 new connections, one
@@ -29,15 +29,11 @@ possible to view and interview within the http protocol and also in the
 data transferred. So, for example, it’s possible to capture a session
 cookie reading the http header, but it’s also possible to change an
 amount of money transaction inside the application context, as shown in
-figure 2.
+figure 1.
 
-<center>
+![HTTP packet intercepted with Paros Proxy](../assets/images/attacks/mitm-paros.jpg)
 
-![Image:request.JPG](request.JPG "Image:request.JPG")
-
-Figure 2. Illustration of a HTTP Packet intercepted with Paros Proxy.
-
-</center>
+*Figure 1. Illustration of a HTTP Packet intercepted with Paros Proxy.*
 
 The MITM attack could also be done over an https connection by using the
 same technique; the only difference consists in the establishment of two
@@ -81,40 +77,28 @@ network attack tools or configure the browser.
   - ProxyFuzz
   - Odysseus Proxy
   - Fiddler (by Microsoft)
+  - [mitmproxy](https://mitmproxy.org/)
 
-## Examples
+## Related Threat Agents
 
-TBD
-
-## Related [Threat Agents](Threat_Agents "wikilink")
-
-  - [:Category:Authentication](:Category:Authentication "wikilink")
-  - [:Category:Client-side
-    Attacks](:Category:Client-side_Attacks "wikilink")
+  - Intranet Attacker
 
 ## Related [Attacks](https://owasp.org/www-community/attacks/)
 
-  - [Man-in-the-browser_attack](Man-in-the-browser_attack "wikilink")
+  - [Man-in-the-browser_attack](https://owasp.org/www-community/attacks/Man-in-the-browser_attack)
 
 ## Related [Vulnerabilities](https://owasp.org/www-community/vulnerabilities/)
 
-  - [:Category:Session Management
-    Vulnerability](:Category:Session_Management_Vulnerability "wikilink")
+  - Session Management Vulnerability
 
 ## Related [Controls](https://owasp.org/www-community/controls/)
 
-  - [Session Management](Session_Management "wikilink")
+  - Session Management
 
 ## References
 
-  - <http://www.sans.org/reading_room/whitepapers/threats/480.php>
-  - <http://cwe.mitre.org/data/definitions/300.html>
-  - <http://resources.infosecinstitute.com/video-man-in-the-middle-howto/>
-  - <http://en.wikipedia.org/wiki/Man-in-the-middle_attack>
-
-[Category:OWASP ASDR Project](Category:OWASP_ASDR_Project "wikilink")
-[could these all be links?](Category:FIXME "wikilink") [could these all
-be links?](Category:FIXME "wikilink") [these aren't threat
-agents](Category:FIXME "wikilink")
-[Category:Spoofing](Category:Spoofing "wikilink")
-[Category:Attack](Category:Attack "wikilink")
+  - http://www.sans.org/reading_room/whitepapers/threats/480.php
+  - http://cwe.mitre.org/data/definitions/300.html
+  - http://resources.infosecinstitute.com/video-man-in-the-middle-howto/
+  - http://en.wikipedia.org/wiki/Man-in-the-middle_attack
+  - [OWASP ASDR Project](https://owasp.org/www-pdf-archive/Developing_Secure_Applications_with_OWASP.pdf)
